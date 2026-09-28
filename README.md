@@ -1,29 +1,28 @@
 # Adaptive-FinMem-LLM-StockTrading
 
-> **Market-Regime Adaptive Memory Management for LLM-Based Stock Trading Agents**
-
-An improved **FinMem** framework that introduces market-state awareness into memory retrieval, feedback reinforcement, and reflection, enabling an LLM-based trading agent to adapt its memory management to changing market conditions.
-
----
+> Market-Regime Adaptive Memory Management for LLM-Based Stock Trading Agents
 
 ## Overview
 
-**Adaptive-FinMem** is an improved version of the open-source **FinMem** framework for LLM-based financial trading agents.
+This project extends the open-source **FinMem** framework with a
+market-regime adaptive memory management mechanism for LLM-based
+stock trading agents.
 
-The project focuses on a key limitation of static memory management in financial environments:
+**Base Project:**  
+[FinMem: A Performance-Enhanced LLM Trading Agent with Layered Memory and Character Design](https://github.com/pipiku915/FinMem-LLM-StockTrading)
 
-> **Historical trading experience should not be treated equally under different market conditions.**
+The original FinMem framework follows a
+**Perception → Memory → Decision → Feedback** workflow.
+Based on this architecture, this project introduces three lightweight
+memory-management mechanisms:
 
-Based on FinMem's original **Perception → Memory → Decision → Feedback** closed-loop architecture and hierarchical memory system, this project introduces three market-state-adaptive mechanisms:
+- **RGR (Regime-Gated Retrieval)** — adapts memory retrieval according to market regimes.
+- **CFR (Coefficient-based Feedback Reinforcement)** — provides continuous risk-adjusted feedback for memory updates.
+- **ETR (Event-Triggered Reflection)** — triggers additional reflection under abnormal market conditions.
 
-* **RGR — Regime-Gated Retrieval**
-  Dynamically adjusts memory retrieval weights according to the current market regime identified from rolling volatility and return trends.
-
-* **CFR — Coefficient-based Feedback Reinforcement**
-  Replaces the original discrete feedback signal with continuous risk-adjusted feedback to enable finer-grained memory importance updates.
-
-* **ETR — Event-Triggered Reflection**
-  Dynamically triggers additional reflection when risk events such as consecutive losses, large drawdowns, or abnormal daily fluctuations occur.
+The goal is to make the agent's memory management more adaptive to
+non-stationary market environments while preserving the original
+FinMem workflow and compatibility.
 
 ---
 
