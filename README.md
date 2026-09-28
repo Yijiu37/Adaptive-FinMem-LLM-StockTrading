@@ -1,5 +1,9 @@
 # Adaptive-FinMem-LLM-StockTrading
 
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Based on FinMem](https://img.shields.io/badge/Based%20on-FinMem-orange.svg)](https://github.com/pipiku915/FinMem-LLM-StockTrading)
+
 > Market-Regime Adaptive Memory Management for LLM-Based Stock Trading Agents
 
 ## Overview
