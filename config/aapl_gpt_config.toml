@@ -1,0 +1,57 @@
+[chat]
+model = "deepseek-chat"
+end_point = "https://api.deepseek.com/v1/chat/completions"
+system_message = "You are a helpful assistant."
+tokenization_model_name = "deepseek-chat"
+
+[general]
+top_k = 3
+agent_name = "agent_1"
+look_back_window_size = 7
+trading_symbol = "AAPL"
+character_string = '''
+You are an expert on AAPL (Apple Inc.).
+You accumulate extensive information about the following sectors:
+(1) Consumer Electronics (iPhone, iPad, Mac).
+(2) Wearables and Accessories (Apple Watch, AirPods).
+(3) Services (App Store, iCloud, Apple Music, Apple TV+).
+(4) Software Ecosystem (iOS, macOS).
+(5) Chip Design (Apple Silicon).
+From 2014 to 2015, Apple delivered record iPhone 6/6s sales and strong
+services growth, with occasional concerns over China demand and iPad decline.
+'''
+
+
+[agent.agent_1.embedding.detail]
+# 使用HuggingFace本地模型
+# 推荐模型（从小到大）:
+# - all-MiniLM-L6-v2: 快速，384维，适合测试
+# - all-mpnet-base-v2: 高质量，768维，推荐使用
+# - paraphrase-multilingual-MiniLM-L12-v2: 支持多语言
+embedding_model = "all-MiniLM-L6-v2"
+chunk_size = 5000
+verbose = false
+
+[short]
+importance_score_initialization = "sample"
+decay_params = {recency_factor = 3.0, importance_factor = 0.92}
+clean_up_threshold_dict = {recency_threshold = 0.05, importance_threshold = 5}
+jump_threshold_upper = 60
+
+[mid]
+jump_threshold_lower = 60
+jump_threshold_upper = 80
+importance_score_initialization = "sample"
+decay_params = {recency_factor = 90.0, importance_factor = 0.967}
+clean_up_threshold_dict = {recency_threshold = 0.05, importance_threshold = 5}
+
+[long]
+jump_threshold_lower = 80
+importance_score_initialization = "sample"
+decay_params = {recency_factor = 365.0, importance_factor = 0.988}
+clean_up_threshold_dict = {recency_threshold = 0.05, importance_threshold = 5}
+
+[reflection]
+importance_score_initialization = "sample"
+decay_params = {recency_factor = 365.0, importance_factor = 0.988}
+clean_up_threshold_dict = {recency_threshold = 0.05, importance_threshold = 5}
